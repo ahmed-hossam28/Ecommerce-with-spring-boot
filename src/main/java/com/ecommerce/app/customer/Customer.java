@@ -1,10 +1,22 @@
 package com.ecommerce.app.customer;
-
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+@Entity
+@Table
 @Component
 public class Customer {
+     @Id
      Long id;
+    @SequenceGenerator(
+            name = "customer_sequence",
+            sequenceName = "customer_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_sequence"
+    )
      String name;
      String email;
      String phoneNumber;
