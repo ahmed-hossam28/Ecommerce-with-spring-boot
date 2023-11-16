@@ -40,6 +40,10 @@ public class CustomerController {
          customerService.removeById(customerId);
        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
-
+   @PutMapping("/{customerId}")
+   ResponseEntity<Customer> updateCustomer(@RequestBody Customer newCustomer,@PathVariable Long customerId){
+        Customer customer = customerService.updateCustomer(newCustomer,customerId);
+        return new ResponseEntity<>(customer,HttpStatus.OK);
+   }
 
 }

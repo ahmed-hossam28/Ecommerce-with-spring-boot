@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Customer {
      @Id
-     Long id;
+    private Long id;
     @SequenceGenerator(
             name = "customer_sequence",
             sequenceName = "customer_sequence",
@@ -17,10 +17,10 @@ public class Customer {
             strategy = GenerationType.SEQUENCE,
             generator = "customer_sequence"
     )
-     String name;
-     String email;
-     String phoneNumber;
-     String password;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private String password;
     public Customer(Long id,
                     String name,
                     String email,

@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  mysql-db:
+    image: mysql:latest
+    container_name: mysql-db
+    ports:
+      - 3308:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=userpass
+
+  phpmyadmin:
+    image: linuxserver/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 8082:80
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=newrootpassword
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=newuserpassword
+      - MYSQL_HOST=mysql-db
+
+volumes:
+  mysql-data: {}
+
+networks:
+  default:
+    name: mysql_network
