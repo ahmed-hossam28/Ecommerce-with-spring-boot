@@ -20,7 +20,8 @@ The MySQL database is containerized using Docker, streamlining the deployment pr
 - MySQL database for efficient data storage within a Docker container.
 
 **To Run the App:**
-1. Build and run the Spring Boot application.
-2. Ensure Docker is installed on your system.
-3. Run the MySQL container using Docker.
+1. Ensure Docker is installed on your system.
+2. Run the MySQL container using Docker.
+3. Build and run the Spring Boot application.
+
 
